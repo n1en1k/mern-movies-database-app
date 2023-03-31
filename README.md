@@ -2,6 +2,12 @@
 
 MERN Movies database app
 
+server:
+nodemon index.js
+
+client:
+npm start
+
 ## Plans
 
 # movie-database-app
