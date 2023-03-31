@@ -33,24 +33,23 @@ movies db
         mid INT NN FOREIGN KEY movie table id cascade on update & delete
         did INT NN FOREIGN KEY director table id cascade on update & delete
 
-### content
+### content on pages
 
     /
         navbar
+            / link
+            add movie link
+        list movies (with pagination) - offer update / delete
+            sql query will be joined to get both director and actor data
 
-/ link
-add movie link
-list movies (with pagination) - offer update / delete
-sql query will be joined to get both director and actor data
-
-add movie
-back-button
-form (select fields for director and actor [multiple, add new when one selected])
-sql queries to get list of directora and actors
-links to add director and actors if not listed
+    add movie
+        back-button
+        form (select fields for director and actor [multiple, add new when one selected])
+            sql queries to get list of directora and actors
+        links to add director and actors if not listed
 
     update movie
         back-button
         form (with existing data)
             sql query will be joined to get both director and actor data
-            links to add director and actors if not listed
+        links to add director and actors if not listed
