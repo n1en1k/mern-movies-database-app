@@ -10,8 +10,6 @@ npm start
 
 ## Plans
 
-# movie-database-app
-
 ### sql
 
 movies db
