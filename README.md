@@ -15,25 +15,25 @@ npm start
 movies db
 
     movie table
-        id INT AI NN PK
+        movieid INT AI NN PK
         name VARCHAR(255) NN
         did INT NN FOREIGN KEY director table id cascade on update & delete
         year INT NN
 
     director table
-        id INT AI NN PK
+        directorid INT AI NN PK
         name VARCHAR(255) NN
         img VARCHAR(255)
         born DATE NN
 
     actor table
-        id INT AI NN PK
+        actorid INT AI NN PK
         name VARCHAR(255) NN
         img VARCHAR(255)
         born DATE NN
 
     starring table
-        id INT AI NN PK
+        starringid INT AI NN PK
         mid INT NN FOREIGN KEY movie table id cascade on update & delete
         aid INT NN FOREIGN KEY actor table id cascade on update & delete
 
