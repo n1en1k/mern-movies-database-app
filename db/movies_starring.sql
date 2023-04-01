@@ -23,14 +23,12 @@ DROP TABLE IF EXISTS `starring`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `starring` (
-  `starringid` int NOT NULL AUTO_INCREMENT,
-  `mid` int NOT NULL,
-  `aid` int NOT NULL,
-  PRIMARY KEY (`starringid`),
-  KEY `movieid_idx` (`mid`),
-  KEY `actorid_idx` (`aid`),
-  CONSTRAINT `actorid` FOREIGN KEY (`aid`) REFERENCES `actor` (`actorid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `movieid` FOREIGN KEY (`mid`) REFERENCES `movie` (`movieid`) ON DELETE CASCADE ON UPDATE CASCADE
+  `id` int NOT NULL AUTO_INCREMENT,
+  `movie_id` int NOT NULL,
+  `actor_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_starring_actor` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_starring_movie` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
