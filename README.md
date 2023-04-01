@@ -3,9 +3,11 @@
 MERN Movies database app
 
 server:
+npm install
 nodemon index.js
 
 client:
+npm install
 npm start
 
 ## Plans
