@@ -1,5 +1,8 @@
 .movies {
-  margin: 0 30px;
+  /*margin: 0 30px;*/
+  max-width: 800px;
+  padding: 20px;
+  margin: auto;
 }
 
 .movie-item {
@@ -18,5 +21,5 @@
 }
 
 .detail {
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
 }
