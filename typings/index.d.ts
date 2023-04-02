@@ -1,18 +1,20 @@
 export interface Director {
-  name: string,
-  born: Date,
-  img?: string
+  id: number;
+  name: string;
+  born: Date;
+  img?: string;
 }
 
 export interface Actor {
-  name: string,
-  born: Date,
-  img?: string
+  id: number;
+  name: string;
+  born: Date;
+  img?: string;
 }
 
 export interface Movie {
-  name: string
-  director: Director
-  actors: Actor[]
-  year: number
+  name: string;
+  director: Director;
+  actors: Actor[];
+  year: number;
 }

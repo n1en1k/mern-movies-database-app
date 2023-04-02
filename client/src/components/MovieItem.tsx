@@ -1,13 +1,21 @@
 import React from "react";
 import { Actor, Movie } from "../../../typings";
 import "./MovieItem.css";
+import { Link } from "react-router-dom";
 
 interface MovieItemProps {
   movie: Movie;
 }
 const MovieItem = ({ movie }: MovieItemProps) => {
   const listActors = (actors: Actor[]) => {
-    return actors.map((actor) => actor.name).join(", ");
+    // MUST BE OBJECT SHIT
+    return actors
+      .map((actor) => (
+        <>
+          <Link to={`/actors/${actor.id}`}>{actor.name}</Link>
+        </>
+      ))
+      .join(", ");
   };
   return (
     <div className="movie-item">
@@ -16,7 +24,10 @@ const MovieItem = ({ movie }: MovieItemProps) => {
         <strong>Year:</strong> {movie.year}
       </span>
       <span className="detail">
-        <strong>Director:</strong> {movie.director.name}
+        <strong>Director:</strong>{" "}
+        <Link to={`/directors/${movie.director.id}`}>
+          {movie.director.name}
+        </Link>
       </span>
       <span className="detail">
         <strong>Starring:</strong> {listActors(movie.actors)}
