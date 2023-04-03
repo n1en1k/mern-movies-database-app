@@ -4,6 +4,7 @@ import * as dotenv from "dotenv";
 import indexRoutes from "./routes/index.routes.js";
 import moviesRoutes from "./routes/movies.routes.js";
 
+// dotenv for .env variables
 dotenv.config();
 
 const app = express();
