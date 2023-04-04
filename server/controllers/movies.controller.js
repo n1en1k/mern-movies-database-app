@@ -2,7 +2,9 @@ import { pool } from "../db.js";
 
 export const getMovies = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM movie ORDER BY name ASC");
+    const [result] = await pool.query(
+      "SELECT movie.id AS movieID, movie.name AS movieName, movie.director_id, director.name AS directorName, movie.year, starring.actor_id, actor.name AS actorName FROM movie JOIN director ON director.id = movie.director_id JOIN starring ON movie.id = starring.movie_id JOIN actor ON actor.id = starring.actor_id"
+    );
     res.json(result);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -12,7 +14,10 @@ export const getMovies = async (req, res) => {
 export const getMovie = async (req, res) => {
   const { id } = req.params;
   try {
-    const [result] = await pool.query("SELECT * FROM movie WHERE id = ?", [id]);
+    const [result] = await pool.query(
+      "SELECT movie.id AS movieID, movie.name AS movieName, movie.director_id, director.name AS directorName, movie.year, starring.actor_id, actor.name AS actorName FROM movie JOIN director ON director.id = movie.director_id JOIN starring ON movie.id = starring.movie_id JOIN actor ON actor.id = starring.actor_id WHERE movie.id = ?",
+      [id]
+    );
     if (result.length === 0)
       return res.status(404).json({
         message: "Movie not found",
@@ -24,15 +29,16 @@ export const getMovie = async (req, res) => {
 };
 
 export const createMovie = async (req, res) => {
-  const { title, description } = req.body;
+  const { name, director_id, year } = req.body;
   try {
     const [result] = await pool.query(
-      "INSERT INTO movie(name, year) VALUES (?,?)",
-      [name, year]
+      "INSERT INTO movie(name, director_id, year) VALUES (?,?,?)",
+      [name, director_id, year]
     );
     res.json({
       id: result.insertId,
       name,
+      director_id,
       year,
     });
   } catch (error) {
