@@ -1,16 +1,5 @@
 import { pool } from "../db.js";
 
-export const getMovies = async (req, res) => {
-  try {
-    const [result] = await pool.query(
-      "SELECT movie.id AS movieID, movie.name AS movieName, movie.director_id, director.name AS directorName, movie.year, starring.actor_id, actor.name AS actorName FROM movie JOIN director ON director.id = movie.director_id JOIN starring ON movie.id = starring.movie_id JOIN actor ON actor.id = starring.actor_id"
-    );
-    res.json(result);
-  } catch (error) {
-    return res.status(500).json({ message: error.message });
-  }
-};
-
 export const getMovie = async (req, res) => {
   const { id } = req.params;
   try {

@@ -8,14 +8,11 @@ interface MovieItemProps {
 }
 const MovieItem = ({ movie }: MovieItemProps) => {
   const listActors = (actors: Actor[]) => {
-    // MUST BE OBJECT SHIT
-    return actors
-      .map((actor) => (
-        <>
-          <Link to={`/actors/${actor.id}`}>{actor.name}</Link>
-        </>
-      ))
-      .join(", ");
+    return actors.map((actor) => (
+      <Link key={actor.id} to={`/actors/${actor.id}`}>
+        {actor.name}
+      </Link>
+    ));
   };
   return (
     <div className="movie-item">

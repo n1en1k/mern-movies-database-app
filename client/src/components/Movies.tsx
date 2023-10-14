@@ -3,58 +3,21 @@ import { Movie } from "../../../typings";
 import MovieItem from "./MovieItem";
 import "./Movies.css";
 import { Link } from "react-router-dom";
-
-const moviesMock: Movie[] = [
-  {
-    name: "Titanic",
-    director: {
-      id: 1,
-      name: "James Cameron",
-      born: new Date("1954-08-16"),
-    },
-    actors: [
-      {
-        id: 1,
-        name: "Leonardo DiCaprio",
-        born: new Date("1974-11-11"),
-      },
-      {
-        id: 2,
-        name: "Kate Winslet",
-        born: new Date("1975-11-11"),
-      },
-    ],
-    year: 1997,
-  },
-  {
-    name: "Titanic2",
-    director: {
-      id: 2,
-      name: "James Cameron",
-      born: new Date("1954-08-16"),
-    },
-    actors: [
-      {
-        id: 1,
-        name: "Leonardo DiCaprio",
-        born: new Date("1974-11-11"),
-      },
-      {
-        id: 2,
-        name: "Kate Winslet",
-        born: new Date("1975-11-11"),
-      },
-    ],
-    year: 1997,
-  },
-];
+import axios from "axios";
 
 const Movies = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
-  const fetchMovies = () => {
-    const fetchedMovies = moviesMock;
-    setMovies(fetchedMovies);
+  const fetchMovies = async () => {
+    try {
+      const fetchedMovies: Movie[] = (
+        await axios.get("http://localhost:4000/movies")
+      ).data;
+
+      setMovies(fetchedMovies);
+    } catch (error: any) {
+      console.error("fetchMovie error: ", error.message);
+    }
   };
 
   useEffect(() => {
