@@ -1,14 +1,26 @@
 # mern-movies-database-app
 
-MERN Movies database app
+![Static Badge](https://img.shields.io/badge/Status-In_Progress-orange)
 
-server:
-npm install
-nodemon index.js
+MERN Movies database app. An app that helps you to keep on track which movies you have seen. You can add, edit and delete movies, directors and actors. I started this project since I need practice and it's time to update my old PHP movies app to modern standards.
 
-client:
-npm install
-npm start
+---
+
+## Installation
+
+server: npm install
+
+client: npm install
+
+---
+
+## Start
+
+server: nodemon index.js
+
+client: npm start
+
+---
 
 ## Plans
 
