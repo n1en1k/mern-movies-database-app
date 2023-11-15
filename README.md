@@ -1,6 +1,6 @@
 # mern-movies-database-app
 
-![Static Badge](https://img.shields.io/badge/Status-In_Progress-orange)
+![Static Badge](https://img.shields.io/badge/Project_Status-In_Progress-orange)
 
 MERN Movies database app. An app that helps you to keep on track which movies you have seen. You can add, edit and delete movies, directors and actors. I started this project since I need practice and it's time to update my old PHP movies app to modern standards.
 
