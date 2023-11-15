@@ -22,6 +22,12 @@ client: npm start
 
 ---
 
+## TODO
+
+- add fields img and genre to movies table
+
+---
+
 ## Plans
 
 ### sql
