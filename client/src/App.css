@@ -149,6 +149,7 @@ FONTS
   text-transform: capitalize;
   color: var(--colorWhite);
   transition: 0.3s ease;
+  margin-right: 10px;
 }
 
 .btn:hover {
