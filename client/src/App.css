@@ -328,7 +328,6 @@ nav a {
 }
 
 .nav-link {
-  transition: 0.5s ease;
   font-size: 18px;
   letter-spacing: 0.5px;
   text-transform: capitalize;
@@ -353,6 +352,8 @@ nav a {
 
 .nav-link-active {
   color: var(--colorRed);
+  background: var(--colorBackground) url("./assets/images/arrow.svg") no-repeat;
+  background-position: right 30px center;
 }
 
 .nav-arrow {
@@ -659,6 +660,7 @@ MOBILE
 
   .nav-link {
     font-size: 23px;
+    background-image: none;
   }
 
   nav.active {
