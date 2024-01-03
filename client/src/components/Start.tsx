@@ -5,6 +5,8 @@ const Start = () => {
   return (
     <main>
       <h2 className="heading2">Welcome to Movies App</h2>
+      <h3 className="heading3">This page contains</h3>
+      <h4 className="heading4">styles</h4>
 
       <button className="btn btn-ghost">edit</button>
       <button className="btn btn-warning">add</button>
@@ -28,6 +30,8 @@ const Start = () => {
         iso ewlr LOREM IPSUM dot sit amet so dot iso ewlr LOREM IPSUM dot sit
         amet so dot iso ewlr
       </p>
+      <p className="regularP msgSuccess">Success</p>
+      <p className="regularP msgError">Error</p>
     </main>
   );
 };

@@ -25,8 +25,8 @@ client: npm start
 ## TODO
 
 - add fields img and genre to movies table
-- design and code front-end
-- make backend for director and actor api calls
+- code front-end movies create, single-page, edit and del
+- make backend movies create, single-page, edit and del
 
 ---
 
