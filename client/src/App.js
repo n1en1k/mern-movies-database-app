@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import "./App.css";
+import Start from "./components/Start";
 import Movies from "./components/Movies";
 import Actors from "./components/Actors";
 import Directors from "./components/Directors";
@@ -58,7 +59,7 @@ function App() {
               <ul className="nav-menu">
                 <li className="nav-item">
                   <NavLink
-                    to="/"
+                    to="/movies"
                     className={({ isActive }) =>
                       "nav-link" + (isActive ? " nav-link-active" : "")
                     }
@@ -105,8 +106,9 @@ function App() {
             </div>
           </nav>
           <Routes>
-            <Route path="/" element={<Movies />} />
-            <Route path="/createMovie" element={<CreateMovie />} />
+            <Route path="/" element={<Start />} />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/movies/createMovie" element={<CreateMovie />} />
             <Route path="/actors" element={<Actors />} />
             <Route path="/directors" element={<Directors />} />
           </Routes>
