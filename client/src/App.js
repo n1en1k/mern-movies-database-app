@@ -1,5 +1,9 @@
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+
 import Start from "./components/Start";
 import Movies from "./components/Movies";
 import Actors from "./components/Actors";
@@ -17,94 +21,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <header>
-          <div className="logoDiv">
-            <h1 className="logo">
-              <NavLink to="/" className="logoLink">
-                Movies App
-              </NavLink>
-            </h1>
-            <div
-              className={`hamburger  ${showNavbar && "active"}`}
-              onClick={handleShowNavbar}
-            >
-              <span className="bar"></span>
-              <span className="bar"></span>
-              <span className="bar"></span>
-            </div>
-          </div>
-          <div className="headerSearch">
-            <form name="headerSearchForm" className="headerSearchForm">
-              <input
-                type="text"
-                className="searchBar"
-                name="searchBar"
-                id="searchBar"
-                placeholder="Search"
-              />
-              <input
-                type="submit"
-                className="searchSubmit"
-                id="searchSubmit"
-                name="searchSubmit"
-                value="&rarr;"
-              />
-            </form>
-          </div>
-        </header>
+        <Header sN={showNavbar} onActive={handleShowNavbar} />
 
         <div className="container">
-          <nav className={`${showNavbar && "active"}`}>
-            <div className="navwrapper">
-              <ul className="nav-menu">
-                <li className="nav-item">
-                  <NavLink
-                    to="/movies"
-                    className={({ isActive }) =>
-                      "nav-link" + (isActive ? " nav-link-active" : "")
-                    }
-                  >
-                    movies
-                    <img
-                      className="nav-arrow"
-                      src="../../assets/images/arrow.svg"
-                      alt="->"
-                    />
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    to="/directors"
-                    className={({ isActive }) =>
-                      "nav-link" + (isActive ? " nav-link-active" : "")
-                    }
-                  >
-                    directors
-                    <img
-                      className="nav-arrow"
-                      src="../../assets/images/arrow.svg"
-                      alt="->"
-                    />
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    to="/actors"
-                    className={({ isActive }) =>
-                      "nav-link" + (isActive ? " nav-link-active" : "")
-                    }
-                  >
-                    actors
-                    <img
-                      className="nav-arrow"
-                      src=".../../assets/images/arrow.svg"
-                      alt="->"
-                    />
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
-          </nav>
+          <Navbar sN={showNavbar} />
           <Routes>
             <Route path="/" element={<Start />} />
             <Route path="/movies" element={<Movies />} />
